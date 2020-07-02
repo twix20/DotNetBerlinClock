@@ -1,27 +1,29 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using BerlinClock.Classes;
+using BerlinClock.Classes.BusinessLogic;
+using BerlinClock.Classes.Input;
+using BerlinClock.Classes.Output;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
+using TechTalk.SpecFlow;
 
 namespace BerlinClock
 {
     [Binding]
     public class TheBerlinClockSteps
     {
-        private ITimeConverter berlinClock = new TimeConverter();
-        private String theTime;
+        private readonly ITimeConverter _berlinClock = new TimeConverter(new TimeParser(), new MatrixConverter(), new MatrixPrinter());
+        private string _theTime;
 
-        
+
         [When(@"the time is ""(.*)""")]
         public void WhenTheTimeIs(string time)
         {
-            theTime = time;
+            _theTime = time;
         }
-        
+
         [Then(@"the clock should look like")]
         public void ThenTheClockShouldLookLike(string theExpectedBerlinClockOutput)
         {
-            Assert.AreEqual(berlinClock.convertTime(theTime), theExpectedBerlinClockOutput);
+            Assert.AreEqual(theExpectedBerlinClockOutput, _berlinClock.ConvertTime(_theTime));
         }
 
     }
