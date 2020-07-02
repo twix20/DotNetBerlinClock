@@ -7,8 +7,13 @@ namespace BerlinClock.Classes.BusinessLogic
 {
     public class LampMatrix
     {
+        /// <summary>
+        /// Lamp that is on the top of the clock
+        /// that blinks on/off every two seconds.
+        /// </summary>
         public Lamp OddSecondsLamp => Rows[0][0];
-        public IEnumerable<Lamp[]> RowsExceptOddSecondsLamp => Rows.Skip(1);
+
+        public IEnumerable<Lamp[]> TimeIndicatorLampRows => Rows.Skip(1);
 
         public Lamp[][] Rows { get; } =
         {
