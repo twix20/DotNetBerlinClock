@@ -10,7 +10,7 @@ namespace BerlinClock.Classes.BusinessLogic
             var matrix = new LampMatrix();
             matrix.OddSecondsLamp.Enabled = IsBlinking(time);
 
-            foreach (var rowLamps in matrix.RowsExceptOddSecondsLamp)
+            foreach (var rowLamps in matrix.TimeIndicatorLampRows)
             {
                 foreach (var lamp in rowLamps)
                 {
