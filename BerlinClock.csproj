@@ -59,6 +59,7 @@
     <Compile Include="Classes\Input\ITimeParser.cs" />
     <Compile Include="Classes\Input\TimeParser.cs" />
     <Compile Include="Classes\Output\IMatrixPrinter.cs" />
+    <Compile Include="Classes\Output\MatrixPrinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BDD\BerlinClockFeatureSteps.feature.cs">
       <AutoGen>True</AutoGen>
